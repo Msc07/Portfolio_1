@@ -1,0 +1,9 @@
+SELECT COUNT(YearofBirth) AS number, YearofBirth
+FROM `portfolio-1-1.baby_names.names` 
+GROUP BY YearofBirth 
+LIMIT 10
+
+SELECT COUNT(YearofBirth) AS number, YearofBirth
+FROM `portfolio-1-1.baby_names.names` 
+WHERE YearOfBirth = 1880 OR YearOfBirth = 2015
+GROUP BY YearOfBirth
