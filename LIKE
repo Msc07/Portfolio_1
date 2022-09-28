@@ -1,0 +1,28 @@
+SELECT Name
+FROM `portfolio-1-1.baby_names.names` 
+WHERE Name LIKE 'O%' AND Sex = "F"
+GROUP BY Name
+LIMIT 5
+
+--
+Row	Name	
+1  Olive
+2  Ollie
+3  Ora
+4  Ola
+5  Olga
+--
+
+SELECT Name
+FROM `portfolio-1-1.baby_names.names` 
+WHERE Name LIKE 'A%s' AND Sex = "M"
+GROUP BY Name
+LIMIT 5 
+
+--
+Row	Name	
+1  Amos
+2  Augustus
+3  Aloysius
+4  Alois
+5  Andres
