@@ -1,0 +1,41 @@
+SELECT Min(Number) AS Min
+FROM `portfolio-1-1.baby_names.names` 
+
+--
+Row	Min	
+1	  100
+--
+
+SELECT Name, Number
+FROM `portfolio-1-1.baby_names.names` 
+WHERE Number = 100
+LIMIT 5
+
+--
+Row	Name	Number	
+1	 Dollie   100
+2	 Mathilda 100
+3	 Roxie    100
+4	 Lucille  100
+5	 Nelle    100
+--
+
+SELECT COUNT(Number) AS Low_number
+FROM `portfolio-1-1.baby_names.names` 
+WHERE Number = 100
+
+--
+Row	Low_number	
+1	  1358
+--
+
+SELECT YearOfBirth, Name, Number
+FROM `portfolio-1-1.baby_names.names` 
+WHERE YearOfBirth = 2015 AND Number = (SELECT MIN(Number) AS Min FROM baby_names.names)
+LIMIT 5
+
+--
+Row	YearOfBirth	Name	Number	
+1	  2015      Analeah  100
+2	  2015      Cristal  100
+3	  2015      Fabiola  100
