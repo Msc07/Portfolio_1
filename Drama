@@ -1,0 +1,40 @@
+There are many good genres in movies I wonder what genre is used the most? Dataset is from the "Popular Movie Dataset."
+
+I was able to use the COUNT and GROUP BY function so that I can see how many times these genres appear in the dataset. 
+
+SELECT COUNT(genres) AS Number, genres 
+FROM movies.movies
+GROUP BY genres
+LIMIT 5
+
+Row	Number	genres	
+1	 4        War
+2	 12       Crime
+3	 1053     Drama
+4	 60       Action
+5	 946      Comedy
+
+I had some trouble finding the max Number since the Number column is an alias. 
+I wonder if there is another way to be able to find the max given the COUNT function?
+For now I used a subquery. 
+
+SELECT MAX(Number)
+FROM (SELECT COUNT(genres) AS Number, genres 
+FROM movies.movies
+GROUP BY genres)
+
+Row	 f0_	
+1	  1053
+
+Then, I was able to use the WHERE function to find which genre gives me 1053. 
+
+SELECT Number, genres
+FROM (SELECT COUNT(genres) AS Number, genres 
+FROM movies.movies
+GROUP BY genres)
+WHERE Number = 1053
+
+Row	Number	genres	
+1	 1053     Drama
+
+Drama is the genre that appears the most in the dataset. 
