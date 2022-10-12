@@ -1,0 +1,21 @@
+Continuing with the movie dataset. There was another table with ratings by users.
+
+First, I needed to join the two tables. 
+
+SELECT movies_table.movieId, movies_table.title, movies_table.genres, ratings_table.movieId, ratings_table.rating
+FROM movies.movies AS movies_table
+LEFT JOIN movies.ratings AS ratings_table
+ON movies_table.movieId = ratings_table.movieId
+LIMIT 2
+
+Row	movieId	  title	          genres	movieId_1	rating	
+1	  2669  Pork Chop Hill (1959) War    2669     3.0
+2	  2669  Pork Chop Hill (1959) War    2669     4.0
+
+One thing to note is the importance of understanding your dataset. 
+Unfortunately, I made the mistake of not understading that this was ratings based on users.
+I wanted to confirm by checking on the ratings table. 
+
+Row	userId	movieId	rating
+1	  384     2669    3.0
+2	  422     2669    4.0
